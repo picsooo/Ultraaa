@@ -31,6 +31,7 @@ document.getElementById('app').innerHTML=`
    <h1 data-ar="${A(p.ar)}">${p.name}</h1>
    <p class="lead" data-ar="${A(p.descAr)}">${p.desc}</p>
    <div class="facts">${p.areas.map(a=>'<span data-ar="'+A(a[1])+'">'+a[2]+' '+a[0]+'</span>').join('')}</div>
+   ${p.sizes?'<div class="vrow" style="margin-top:18px"><small style="font-weight:800;opacity:.8" data-ar="اختاروا الحجم">Choisissez le format</small><div class="chips" id="szs" style="margin-top:10px">'+p.sizes.map((s,k)=>'<button class="chip'+(k===p.sizes.length-1&&p.slug==='orange'?' on':'')+'" data-i="'+k+'" style="color:#fff;border-color:#fff">'+s[0]+'</button>').join('')+'</div></div>':''}
    <div class="pcta"><a class="pill gold" href="index.html?p=${p.slug}#contact" data-ar="اطلبوا السعر">Demander un tarif</a>
    <button class="pill ghost" onclick="window.print()">${IC.print}<span data-ar="اطبعوا الفيش (PDF)">Imprimer la fiche (PDF)</span></button></div>
   </div>
@@ -52,6 +53,8 @@ document.getElementById('app').innerHTML=`
  <div class="pn noprint"><a href="produit.html?p=${other.slug}"><small data-ar="اكتشفوا أيضا">À découvrir aussi</small><b data-ar="${A(other.ar)}">${other.name}</b></a>
   <a href="revendeurs.html"><small data-ar="أنتم موزّعون؟">Vous êtes revendeur ?</small><b data-ar="فضاء الموزّعين">Espace revendeurs</b></a></div>
 </div></section>`;
+if(p.sizes){const pv=document.querySelector('.pview img');document.querySelectorAll('#szs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#szs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const s=p.sizes[b.dataset.i];if(pv)pv.src=s[1];const c=document.querySelectorAll('table.spec tr')[4];if(c){const t=c.children[1];t.dataset.fr=s[0];t.dataset.ar=s[0];t.textContent=s[0]}});
+ const last=document.querySelector('#szs button:last-child');const first=document.querySelector('#szs button');(p.slug==='orange'?last:last).classList.add('on')}
 document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>{
  document.querySelectorAll('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
  document.querySelectorAll('.panel').forEach(x=>x.classList.remove('on'));document.getElementById('p-'+b.dataset.t).classList.add('on')});
