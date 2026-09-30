@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><link rel="icon" href="img/logo-biopack.png">
+
+<title>Fiche produit — BIOPACK</title>
+</head><body>
+<div id="hdr"></div>
+<main id="app"></main>
+<div id="ftr"></div>
+<script src="brands.js"></script><script src="fiches-data.js"></script><script src="hubapp.js"></script>
+<script>
+const q=new URLSearchParams(location.search);
+const BK=BRANDS[q.get('b')]?q.get('b'):'swif';const B=BRANDS[BK];
+const IX=Math.min(Math.max(+(q.get('i')||0),0),B.products.length-1);const P=B.products[IX];const FD=FICHES[BK+':'+IX]||{cat:[B.tag,B.tagAr],fmt:['Sur demande','حسب الطلب'],pk:['—','—'],uses:[],cautions:[],ideal:[],promo:null};
+const PDF='pdf/'+B.slug+'-'+(IX+1)+'.pdf';
+const prev=B.products[(IX+B.products.length-1)%B.products.length],next=B.products[(IX+1)%B.products.length];
+const pi=(IX+B.products.length-1)%B.products.length,ni=(IX+1)%B.products.length;
+function visual(){
+ if(P.photo)return '<img class="fphoto" src="img/'+P.photo+'" alt="'+A(P.n)+'">';
+ if(P.img)return '<div class="fbig"><img src="img/'+P.img+'.webp" alt="'+A(P.n)+'"></div>';
+ return '<div class="fbig"><div class="bwrap">'+bbottle('#9be9e1','WC')+'</div></div>';
+}
+function draw(){
+ document.title=L(P.n,P.nAr)+' — '+B.name+' — BIOPACK';
+ const specs=[['Produit','المنتج',P.n,P.nAr],['Marque','العلامة',B.name+' — BIOPACK Industries',B.name+' — بيوباك'],['Catégorie','الفئة',FD.cat[0],FD.cat[1]],['Contenance / format','الحجم',FD.fmt[0],FD.fmt[1]],['Conditionnement','التعبئة',FD.pk[0],FD.pk[1]],['Points forts','نقاط القوة',P.facts.map(f=>f[0]).join(' · '),P.facts.map(f=>f[1]).join(' · ')],['Usages','الاستعمالات',FD.ideal.map(f=>f[0]).join(', '),FD.ideal.map(f=>f[1]).join('، ')],['Composition, pH, détails','التركيب والحموضة','Détaillés dans la fiche technique complète (sur demande)','مفصّلة في الفيش التقني الكامل (عند الطلب)'],['Fabricant','الصانع','BIOPACK Industries — Birkhadem, Alger','بيوباك للصناعات — بئر خادم، الجزائر']];
+ document.getElementById('app').innerHTML=`
+<section class="bhero fhero${B.dark?' dk':''}" style="--c1:${B.c1};--c2:${B.c2}"><div class="bubbles" data-n="14"></div><canvas class="bcanvas"></canvas>
+ <div class="wrap"><div>
+  <nav class="crumb"><a href="index.html">BIOPACK</a> / <a href="${B.slug}/">${B.name}</a> / <b data-ar="${A(P.nAr)}">${P.n}</b></nav>
+  ${B.logo?'<img class="bh-logo" src="img/'+B.logo+'" alt="'+B.name+'">':''}
+  <span class="tag" data-ar="${A(FD.cat[1])}">${FD.cat[0]}</span>
+  <h1 style="margin-top:14px;font-size:clamp(30px,5.4vw,72px);line-height:1.02" data-ar="${A(P.nAr)}">${P.n}</h1>
+  <div class="fpills">${P.facts.map(f=>'<span data-ar="'+A(f[1])+'">'+f[0]+'</span>').join('')}</div>
+  <p class="lead" data-ar="${A(P.dAr)}">${P.d}</p>
+  <a class="dl" href="${PDF}" download><span class="di">⬇</span><span><b data-ar="حمّلوا الفيش التقني (PDF)">Télécharger la fiche technique (PDF)</b><small data-ar="ثنائي اللغة عربي/فرنسي · صفحة واحدة">Bilingue FR / AR · 1 page</small></span></a>
+  <div class="acts" style="margin-top:16px"><a class="pill ${B.dark?'dark':'gold'}" href="index.html?b=${B.slug}&p=${encodeURIComponent(P.n)}#distributeurs" data-ar="اطلبوا السعر">Demander un tarif</a><a class="pill ${B.dark?'dark':'ghost'}" href="pdf/catalogue-${B.slug}.pdf" download>⬇ <span data-ar="كتالوج ${B.name}">Catalogue ${B.name}</span></a></div>
+ </div>${visual()}</div>
+</section>
+<div class="wrap"><nav class="fnav"><a href="#f-desc" data-ar="الوصف">Description</a><a href="#f-use" data-ar="طريقة الاستعمال">Mode d'emploi</a><a href="#f-warn" data-ar="احتياطات">Précautions</a><a href="#f-spec" data-ar="الفيش التقني">Fiche technique</a></nav></div>
+<section class="fsec" id="f-desc"><div class="wrap"><div class="fgrid"><div class="fbox rv"><h2 data-ar="الوصف">Description</h2><p data-ar="${A(P.dAr)}">${P.d}</p>${FD.ideal.length?'<h3 style="margin-top:22px;font-size:18px" data-ar="مثالي لـ">Idéal pour</h3><div class="ideal">'+FD.ideal.map(x=>'<span data-ar="'+A(x[1])+'">'+x[0]+'</span>').join('')+'</div>':''}</div>
+ <div class="fbox rv" style="background:${P.bg}"><h3 style="font-size:20px" data-ar="بنظرة سريعة">En un coup d'œil</h3><div class="fpills" style="margin:14px 0 0">${[['Contenance','الحجم',FD.fmt],['Conditionnement','التعبئة',FD.pk]].map(r=>'<span style="background:#fff;color:var(--navy);border-color:#fff"><b data-ar="'+r[1]+'">'+r[0]+'</b> : <span data-ar="'+A(r[2][1])+'" style="background:none;padding:0;border:0;color:inherit">'+r[2][0]+'</span></span>').join('')}</div></div></div></div></section>
+<section class="fsec" id="f-use" style="padding-top:0"><div class="wrap"><h2 class="rv" data-ar="طريقة <em>الاستعمال.</em>">Mode <em>d'emploi.</em></h2><div class="fbox rv">${FD.uses.map((u,k)=>'<div class="st2"><i>'+(k+1)+'</i><p data-ar="'+A(u[1])+'">'+u[0]+'</p></div>').join('')}</div></div></section>
+<section class="fsec" id="f-warn" style="padding-top:0"><div class="wrap"><h2 class="rv" data-ar="<em>احتياطات</em> السلامة.">Précautions <em>d'emploi.</em></h2>${FD.cautions.map(c=>'<div class="wn rv">'+IC.warn+'<span data-ar="'+A(c[1])+'">'+c[0]+'</span></div>').join('')}</div></section>
+<section class="fsec" id="f-spec" style="padding-top:0"><div class="wrap"><h2 class="rv" data-ar="الفيش <em>التقني.</em>">Fiche <em>technique.</em></h2><table class="spec2 rv">${specs.map(s=>'<tr><td data-ar="'+A(s[1])+'">'+s[0]+'</td><td data-ar="'+A(s[3])+'">'+s[2]+'</td></tr>').join('')}</table>
+ <div style="margin-top:22px"><a class="dl" href="${PDF}" download><span class="di">⬇</span><span><b data-ar="حمّلوا الفيش التقني (PDF)">Télécharger la fiche technique (PDF)</b><small data-ar="المعلومات مأخوذة من تواصل العلامة وتحتاج إلى مصادقة.">Informations issues de la communication de la marque, à valider.</small></span></a></div></div></section>
+<section class="fsec" style="padding-top:0"><div class="wrap"><div class="fcta"><div><h3 data-ar="تريدون توزيع ${B.name}؟">Vous souhaitez distribuer ${B.name} ?</h3><p style="opacity:.85;margin-top:8px" data-ar="اتصلوا بنا لفتح حساب موزّع.">Contactez-nous pour ouvrir un compte distributeur.</p></div><div class="acts"><a class="pill gold" href="index.html?b=${B.slug}&p=${encodeURIComponent(P.n)}#distributeurs" data-ar="فضاء الموزّع →">Accès distributeur →</a><a class="pill ghost" href="pdf/catalogue-biopack.pdf" download style="color:#fff">⬇ <span data-ar="كتالوج بيوباك الكامل">Catalogue BIOPACK complet</span></a></div></div>
+ <h3 style="margin:34px 0 8px;font-size:clamp(20px,2.6vw,30px)" data-ar="منتجات أخرى من ${B.name}">Autres produits ${B.name}</h3>
+ <div class="mini">${B.products.map((p,k)=>k===IX?'':'<a style="--bg:'+p.bg+'" href="fiche.html?b='+BK+'&i='+k+'">'+(p.photo?'<img src="img/'+p.photo+'" alt="" style="object-fit:cover;border-radius:16px">':p.img?'<img src="img/'+p.img+'.webp" alt="">':'<div class="bwrap" style="height:150px">'+bbottle("#9be9e1","WC")+'</div>')+'<span data-ar="'+A(p.nAr)+'">'+p.n+'</span></a>').join('')}</div></div></section>`;
+ App.refresh();
+}
+draw();document.addEventListener('langchange',draw);
+</script></body></html>

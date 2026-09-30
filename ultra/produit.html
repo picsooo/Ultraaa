@@ -33,7 +33,7 @@ document.getElementById('app').innerHTML=`
    <div class="facts">${p.areas.map(a=>'<span data-ar="'+A(a[1])+'">'+a[2]+' '+a[0]+'</span>').join('')}</div>
    ${p.sizes?'<div class="vrow" style="margin-top:18px"><small style="font-weight:800;opacity:.8" data-ar="اختاروا الحجم">Choisissez le format</small><div class="chips" id="szs" style="margin-top:10px">'+p.sizes.map((s,k)=>'<button class="chip'+(k===p.sizes.length-1&&p.slug==='orange'?' on':'')+'" data-i="'+k+'" style="color:#fff;border-color:#fff">'+s[0]+'</button>').join('')+'</div></div>':''}
    <div class="pcta"><a class="pill gold" href="index.html?p=${p.slug}#contact" data-ar="اطلبوا السعر">Demander un tarif</a>
-   <button class="pill ghost" onclick="window.print()">${IC.print}<span data-ar="اطبعوا الفيش (PDF)">Imprimer la fiche (PDF)</span></button></div>
+   <a class="pill" style="background:#ffd400;color:#04103f" href="../pdf/ultra-${p.slug}.pdf" download>⬇ <span data-ar="حمّلوا الفيش (PDF)">Télécharger la fiche (PDF)</span></a><a class="pill ghost" href="../pdf/catalogue-ultra.pdf" download>⬇ <span data-ar="كتالوج ألترا">Catalogue Ultra</span></a></div>
   </div>
   <div class="pview">${pimg(p)}</div>
  </div>
@@ -49,7 +49,7 @@ document.getElementById('app').innerHTML=`
  <div class="panel" id="p-u">${p.uses.map((u,k)=>'<div class="ustep"><i>'+(k+1)+'</i><p data-ar="'+A(u[1])+'">'+u[0]+'</p></div>').join('')}</div>
  <div class="panel" id="p-c">${p.cautions.map(c=>'<div class="warn">'+IC.warn+'<span data-ar="'+A(c[1])+'">'+c[0]+'</span></div>').join('')}</div>
  <div class="panel" id="p-s"><table class="spec">${specs.map(s=>'<tr><td data-ar="'+A(s[1])+'">'+s[0]+'</td><td data-ar="'+A(s[3])+'">'+s[2]+'</td></tr>').join('')}</table>
-  <div class="pcta noprint" style="margin-top:24px"><button class="pill" onclick="window.print()">${IC.print}<span data-ar="حمّلوا / اطبعوا الفيش">Télécharger / imprimer la fiche</span></button><a class="pill ghost" style="color:var(--navy)" href="index.html?p=${p.slug}#contact" data-ar="اطلبوا الفيش الكامل">Demander la fiche complète</a></div></div>
+  <div class="pcta noprint" style="margin-top:24px"><a class="pill" style="background:#ffd400;color:#04103f" href="../pdf/ultra-${p.slug}.pdf" download>⬇ <span data-ar="حمّلوا الفيش (PDF)">Télécharger la fiche (PDF)</span></a><button class="pill ghost" style="color:var(--navy)" onclick="window.print()">${IC.print}<span data-ar="اطبعوا">Imprimer</span></button><a class="pill ghost" style="color:var(--navy)" href="index.html?p=${p.slug}#contact" data-ar="اطلبوا الفيش الكامل">Demander la fiche complète</a></div></div>
  <div class="pn noprint"><a href="produit.html?p=${other.slug}"><small data-ar="اكتشفوا أيضا">À découvrir aussi</small><b data-ar="${A(other.ar)}">${other.name}</b></a>
   <a href="revendeurs.html"><small data-ar="أنتم موزّعون؟">Vous êtes revendeur ?</small><b data-ar="فضاء الموزّعين">Espace revendeurs</b></a></div>
 </div></section>`;
