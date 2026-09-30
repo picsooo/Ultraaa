@@ -1,0 +1,52 @@
+const CONTACT={phone:'020 05 88 83',tel:'tel:020058883',addr:'Domaine Ouadah BP 8bis, Birkhadem, Alger 16000',map:'https://www.google.com/maps/search/?api=1&query=Domaine+Ouadah+Birkhadem+Alger',insta:'ultraalgerie.dz',instaUrl:'https://www.instagram.com/ultraalgerie.dz/',fb:'https://www.facebook.com/share/19X49nUhDa/'};
+const STD_C=[['Tenir hors de portée des enfants.','يُحفظ بعيدا عن متناول الأطفال.'],['Éviter le contact avec les yeux ; rincer abondamment à l\'eau en cas de projection.','تجنّبوا ملامسة العينين واشطفوا بوفرة بالماء عند التعرّض.'],['Ne pas ingérer.','لا يُبتلع.']];
+const PRODUCTS={
+ degraissant:{slug:'degraissant',cat:'vaisselle',name:'Ultra Dégraissant — Action Bicarbonate',short2:'Dégraissant Bicarbonate',ar:'ألترا مزيل الدهون — مفعول البيكربونات',tag:'Liquide vaisselle',tagAr:'سائل غسل الأواني',
+  img:'img/blue.webp',photo:'img/camp-duo.jpg',c1:'#4f8dff',c2:'#0b2bd0',dark:false,accent:'#1f5bff',
+  short:'Élimination supérieure des graisses et des odeurs.',shortAr:'إزالة فائقة للدهون والروائح.',
+  desc:'Liquide vaisselle Ultra Dégraissant à l\'action bicarbonate, conçu pour éliminer les graisses et les odeurs. Flacon de 650 ml.',
+  descAr:'سائل غسل الأواني ألترا مزيل الدهون بمفعول البيكربونات، لإزالة الدهون والروائح. عبوة 650 مل.',
+  areas:[['Vaisselle','الأواني','🍽️'],['Graisses & odeurs','الدهون والروائح','💧'],['Action bicarbonate','مفعول البيكربونات','⚪']],
+  fmt:'650 ml',uses:[['Verser une petite quantité sur une éponge humide.','صبّوا كمية صغيرة على إسفنجة مبلّلة.'],['Frotter la vaisselle et les ustensiles gras.','افركوا الأواني والأدوات الدهنية.'],['Rincer abondamment à l\'eau claire.','اشطفوا جيدا بالماء النظيف.']],cautions:STD_C},
+ orange:{slug:'orange',cat:'vaisselle',name:'Liquide vaisselle — Orange',short2:'Vaisselle Orange',ar:'سائل غسل الأواني — برتقال',tag:'Liquide vaisselle',tagAr:'سائل غسل الأواني',
+  img:'img/orange.webp',photo:'img/camp-hero.jpg',c1:'#ffb347',c2:'#e2540b',dark:false,accent:'#f26a12',
+  short:'N°1 Qualité prix : force, qualité et brillance.',shortAr:'رقم 1 في الجودة والسعر: قوة، جودة ولمعان.',
+  desc:'Le liquide vaisselle Ultra Exel à l\'orange porte la mention « N°1 Qualité prix » : force, qualité et brillance pour la vaisselle du quotidien. Flacon de 650 ml.',
+  descAr:'سائل غسل الأواني ألترا إكسل بالبرتقال يحمل عبارة «رقم 1 في الجودة والسعر»: قوة، جودة ولمعان للأواني كل يوم. عبوة 650 مل.',
+  areas:[['Vaisselle','الأواني','🍽️'],['Parfum orange','عطر البرتقال','🍊'],['N°1 Qualité prix','رقم 1 جودة وسعر','🏅']],
+  fmt:'650 ml',uses:[['Verser une petite quantité dans l\'eau de lavage ou sur une éponge humide.','صبّوا كمية صغيرة في ماء الغسيل أو على إسفنجة مبلّلة.'],['Laver la vaisselle, les verres et les casseroles.','اغسلوا الأواني والكؤوس والقدور.'],['Rincer à l\'eau claire.','اشطفوا بالماء النظيف.']],cautions:STD_C},
+ citron:{slug:'citron',cat:'vaisselle',name:'Ultra Dégraissant — Citron',short2:'Dégraissant Citron',ar:'ألترا مزيل الدهون — ليمون',tag:'Liquide vaisselle',tagAr:'سائل غسل الأواني',
+  img:null,photo:'img/camp-citron.jpg',c1:'#ffd930',c2:'#c78b00',dark:true,accent:'#e0a800',
+  short:'Formule + efficace, parfum citron.',shortAr:'تركيبة أكثر فعالية بعطر الليمون.',
+  desc:'Ultra Dégraissant au citron : une formule plus efficace pour des ustensiles propres, brillants et parfumés au citron.',
+  descAr:'ألترا مزيل الدهون بالليمون: تركيبة أكثر فعالية لأواني نظيفة، لامعة ومعطّرة بالليمون.',
+  areas:[['Vaisselle','الأواني','🍽️'],['Parfum citron','عطر الليمون','🍋'],['Formule + efficace','تركيبة أكثر فعالية','⚡']],
+  fmt:'Format sur demande',uses:[['Verser une petite quantité sur une éponge humide.','صبّوا كمية صغيرة على إسفنجة مبلّلة.'],['Frotter la vaisselle et les ustensiles.','افركوا الأواني والأدوات.'],['Rincer abondamment à l\'eau claire.','اشطفوا جيدا بالماء النظيف.']],cautions:STD_C},
+ bicarbonate:{slug:'bicarbonate',cat:'poudre',name:'Bicarbonate — Toute usage',short2:'Bicarbonate',ar:'بيكربونات — لكل استعمال',tag:'Cuisine · Ménage · Linge · Jardin',tagAr:'مطبخ · منزل · ملابس · حديقة',
+  img:'img/bicarb.webp',photo:'img/camp-bicarb.jpg',c1:'#2f66ff',c2:'#06165e',dark:false,accent:'#0f3bff',
+  short:'La poudre toute usage, qualité alimentaire.',shortAr:'المسحوق لكل استعمال، بجودة غذائية.',
+  desc:'Ultra Exel Bicarbonate, toute usage : cuisine, ménage, linge et jardin, avec la mention « Qualité alimentaire » sur l\'emballage.',
+  descAr:'بيكربونات ألترا إكسل لكل استعمال: المطبخ، المنزل، الملابس والحديقة، مع عبارة «جودة غذائية» على العبوة.',
+  areas:[['Cuisine','المطبخ','👨‍🍳'],['Ménage','المنزل','🧽'],['Linge','الملابس','🧺'],['Jardin','الحديقة','🌿'],['Qualité alimentaire','جودة غذائية','✅']],
+  fmt:'Flacon (format sur demande)',uses:[['Choisir l\'usage (cuisine, ménage, linge, jardin) et suivre le mode d\'emploi de l\'emballage.','اختاروا الاستعمال (مطبخ، منزل، ملابس، حديقة) واتبعوا إرشادات العبوة.'],['Doser sans excès, puis dissoudre ou saupoudrer selon l\'usage.','قيسوا الكمية دون إفراط ثم أذيبوها أو انثروها حسب الاستعمال.'],['Rincer à l\'eau claire après utilisation.','اشطفوا بالماء النظيف بعد الاستعمال.']],
+  cautions:[['Tenir hors de portée des enfants.','يُحفظ بعيدا عن متناول الأطفال.'],['Conserver au sec, flacon bien fermé.','يُخزَّن في مكان جاف والعبوة مغلقة جيدا.'],['Éviter le contact avec les yeux ; rincer à l\'eau en cas de projection.','تجنّبوا ملامسة العينين واشطفوا بالماء عند التعرّض.']]},
+ acide:{slug:'acide',cat:'poudre',kind:'citric',name:'Acide citrique',short2:'Acide citrique',ar:'حمض الستريك',tag:'Maison · Cuisine · Salle de bain',tagAr:'البيت · المطبخ · الحمّام',
+  img:null,photo:null,c1:'#ffe27a',c2:'#f0a900',dark:true,accent:'#e0a800',
+  short:'Qualité alimentaire, pour la maison, la cuisine et la salle de bain.',shortAr:'جودة غذائية، للبيت والمطبخ والحمّام.',
+  desc:'Ultra Exel Acide citrique, de qualité alimentaire, accompagne l\'entretien de la maison, de la cuisine et de la salle de bain.',
+  descAr:'حمض الستريك ألترا إكسل بجودة غذائية، يرافق العناية بالبيت والمطبخ والحمّام.',
+  areas:[['Maison','البيت','🏠'],['Cuisine','المطبخ','🍳'],['Salle de bain','الحمّام','🚿'],['Qualité alimentaire','جودة غذائية','✅']],
+  fmt:'Format sur demande',uses:[['Dissoudre la quantité indiquée dans de l\'eau (chaude ou froide selon l\'usage).','أذيبوا الكمية المحدّدة في الماء (ساخن أو بارد حسب الاستعمال).'],['Appliquer ou laisser agir sur la surface ou l\'appareil à entretenir.','ضعوا المحلول أو اتركوه يعمل على السطح أو الجهاز المراد العناية به.'],['Rincer abondamment à l\'eau claire.','اشطفوا جيدا بالماء النظيف.']],
+  cautions:[['Ne jamais mélanger avec de l\'eau de javel (dégagement de gaz dangereux).','لا تخلطوه أبدا بماء جافيل (انبعاث غاز ضارّ).'],['Produit acide : protéger les yeux et les mains, rincer en cas de contact.','منتج حمضي: احموا العينين واليدين واشطفوا عند الملامسة.'],['Tenir hors de portée des enfants et conserver au sec.','يُحفظ بعيدا عن الأطفال وفي مكان جاف.']]}
+};
+const ORDER=['degraissant','orange','citron','bicarbonate','acide'];
+const NEEDS=[
+ {id:'gras',em:'🍳',t:['Vaisselle très grasse','أواني دهنية جدا'],s:['Casseroles, poêles','قدور، مقالي'],p:['degraissant'],tips:[['Ultra Dégraissant est présenté pour l\'élimination supérieure des graisses et des odeurs.','ألترا مزيل الدهون مخصص لإزالة فائقة للدهون والروائح.'],['Une petite quantité sur éponge humide, puis rincez abondamment.','كمية صغيرة على إسفنجة مبلّلة ثم اشطفوا جيدا.']]},
+ {id:'quotidien',em:'🍊',t:['Vaisselle du quotidien','أواني كل يوم'],s:['Parfum orange','عطر البرتقال'],p:['orange'],tips:[['Mention « N°1 Qualité prix » : force, qualité et brillance.','عبارة «رقم 1 في الجودة والسعر»: قوة، جودة ولمعان.'],['Quelques gouttes dans l\'eau de lavage ou sur l\'éponge.','بضع قطرات في ماء الغسيل أو على الإسفنجة.']]},
+ {id:'citron',em:'🍋',t:['Parfum citron','عطر الليمون'],s:['Formule + efficace','تركيبة أكثر فعالية'],p:['citron'],tips:[['Ustensiles propres, brillants et parfumés au citron.','أدوات نظيفة ولامعة ومعطّرة بالليمون.'],['Rincez abondamment à l\'eau claire.','اشطفوا جيدا بالماء النظيف.']]},
+ {id:'multi',em:'🧽',t:['Cuisine, ménage, linge, jardin','مطبخ، منزل، ملابس، حديقة'],s:['Poudre toute usage','مسحوق لكل استعمال'],p:['bicarbonate'],tips:[['Le Bicarbonate Ultra Exel affiche 4 usages : cuisine, ménage, linge et jardin.','بيكربونات ألترا إكسل مخصص لأربعة استعمالات: مطبخ، منزل، ملابس وحديقة.'],['Suivez le mode d\'emploi de l\'emballage pour chaque usage.','اتبعوا إرشادات العبوة لكل استعمال.']]},
+ {id:'calcaire',em:'🫖',t:['Détartrer','إزالة الكلس'],s:['Bouilloire, robinets','غلاية، حنفيات'],p:['acide'],tips:[['Dissolvez l\'acide citrique dans l\'eau, laissez agir puis rincez.','أذيبوا حمض الستريك في الماء واتركوه يعمل ثم اشطفوا.'],['Pour un appareil, suivez d\'abord sa notice.','بالنسبة لجهاز اتبعوا أولا دليل استعماله.'],['Ne mélangez jamais avec de l\'eau de javel.','لا تخلطوه أبدا بماء جافيل.']]},
+ {id:'alim',em:'✅',t:['Usage alimentaire','استعمال غذائي'],s:['Mention sur l\'emballage','إشارة على العبوة'],p:['bicarbonate','acide'],tips:[['Le Bicarbonate et l\'Acide citrique portent la mention « Qualité alimentaire ».','يحمل البيكربونات وحمض الستريك عبارة «جودة غذائية».'],['Respectez toujours les doses de l\'emballage.','احترموا دائما الجرعات المدوّنة على العبوة.']]}
+];
+const WILAYAS=['Adrar','Chlef','Laghouat','Oum El Bouaghi','Batna','Béjaïa','Biskra','Béchar','Blida','Bouira','Tamanrasset','Tébessa','Tlemcen','Tiaret','Tizi Ouzou','Alger','Djelfa','Jijel','Sétif','Saïda','Skikda','Sidi Bel Abbès','Annaba','Guelma','Constantine','Médéa','Mostaganem','M\'Sila','Mascara','Ouargla','Oran','El Bayadh','Illizi','Bordj Bou Arréridj','Boumerdès','El Tarf','Tindouf','Tissemsilt','El Oued','Khenchela','Souk Ahras','Tipaza','Mila','Aïn Defla','Naâma','Aïn Témouchent','Ghardaïa','Relizane','Timimoun','Bordj Badji Mokhtar','Ouled Djellal','Béni Abbès','In Salah','In Guezzam','Touggourt','Djanet','El M\'Ghair','El Meniaa'];
+const WILAYAS_AR=['أدرار','الشلف','الأغواط','أم البواقي','باتنة','بجاية','بسكرة','بشار','البليدة','البويرة','تمنراست','تبسة','تلمسان','تيارت','تيزي وزو','الجزائر','الجلفة','جيجل','سطيف','سعيدة','سكيكدة','سيدي بلعباس','عنابة','قالمة','قسنطينة','المدية','مستغانم','المسيلة','معسكر','ورقلة','وهران','البيض','إليزي','برج بوعريريج','بومرداس','الطارف','تندوف','تيسمسيلت','الوادي','خنشلة','سوق أهراس','تيبازة','ميلة','عين الدفلى','النعامة','عين تموشنت','غرداية','غليزان','تيميمون','برج باجي مختار','أولاد جلال','بني عباس','عين صالح','عين قزام','تقرت','جانت','المغير','المنيعة'];
