@@ -1,34 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css">
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;600;800&family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><link rel="icon" href="../img/logo-biopack.png">
 <title>FLIP — BIOPACK</title>
 </head><body>
 <div id="hdr"></div>
 <main id="app"></main>
 <div id="ftr"></div>
-<script>window.ROOT='../';window.Bflip='flip'</script>
-<script src="../brands.js"></script><script src="../hubapp.js"></script>
-<script>
-const b=BRANDS[Bflip];document.title=b.name+' — BIOPACK Industries';
-function draw(){
- const one=b.name.length>5?b.name.slice(0,4):b.name;
- document.getElementById('app').innerHTML=`
-<section class="bhero" style="--c1:${b.c1};--c2:${b.c2}"><div class="bubbles" data-n="14"></div><canvas class="bcanvas"></canvas>
- <div class="wrap"><div>
-  <nav class="crumb"><a href="../index.html">BIOPACK</a> / <a href="../index.html#marques" data-ar="العلامات">Marques</a> / <b>${b.name}</b></nav>
-  <span class="tag" data-ar="${A(b.tagAr)}">${b.tag}</span>
-  <h1 style="margin-top:14px">${b.name}</h1>
-  <p class="lead" data-ar="${A(b.leadAr)}">${b.lead}</p>
-  <div class="acts"><a class="pill gold" href="#produits" data-ar="اكتشفوا المنتجات ↓">Voir les produits ↓</a><a class="pill ghost" href="../index.html#distributeurs" data-ar="كونوا موزّعين">Devenir distributeur</a></div>
- </div><div class="bv">${bbottle(b.liq,one)}${bbottle(b.liq,one)}</div></div>
-</section>
-<section id="produits"><div class="wrap">
- <h2 class="rv" data-ar="منتجات <em>${b.name}</em>">Les produits <em>${b.name}</em></h2>
- <div class="bprods">${b.products.map(p=>`<div class="bp rv" style="--bg:${b.c1}22"><div class="ph">${bbottle(b.liq,one)}</div><h3 data-ar="${A(p.nAr)}">${p.n}</h3><p data-ar="${A(p.dAr)}">${p.d}</p>${p.scents?'<div class="scents">'+p.scents.map(s=>'<span data-ar="'+A(s[1])+'" style="--c:'+s[2]+'"><i></i>'+s[0]+'</span>').join('')+'</div>':''}</div>`).join('')}</div>
- <div class="note2" data-ar="ℹ️ هذا تقديم أوّلي: صور المنتجات والفيش التقني المفصّل قيد الإعداد.">ℹ️ Présentation préliminaire : les photos des produits et les fiches techniques détaillées sont en cours de préparation.</div>
-</div></section>
-<section style="padding-top:0"><div class="wrap"><h3 style="font-size:clamp(20px,2.6vw,32px)" data-ar="علامات أخرى من المجموعة">Les autres marques du groupe</h3>
- <div class="others">${BORDER.filter(k=>k!==Bflip).map(k=>`<a style="--c1:${BRANDS[k].c1};--c2:${BRANDS[k].c2}" href="../${BRANDS[k].slug}/">${BRANDS[k].name}</a>`).join('')}</div></div></section>`;
- App.refresh();
-}
-draw();document.addEventListener('langchange',draw);
-</script></body></html>
+<script>window.ROOT='../';window.BKEY='flip'</script>
+<script src="../brands.js"></script><script src="../hubapp.js"></script><script src="../brandpage.js"></script>
+</body></html>
