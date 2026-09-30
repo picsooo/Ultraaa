@@ -86,18 +86,18 @@ const wilayaOpts=()=>WILAYAS.map((w,i)=>{const n=String(i+1).padStart(2,'0');ret
  document.documentElement.classList.add('js');
  const here=location.pathname;const act=k=>here.includes(k)?' class="act"':'';
  const R=window.ROOT||'';
- const WM='<span class="wm"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#fff" fill-opacity=".14" stroke="currentColor" stroke-width="2.4"/><circle cx="14" cy="14" r="4" fill="#fff" fill-opacity=".85"/><circle cx="26" cy="25" r="6" fill="#f7c51e"/><circle cx="17" cy="28" r="2.6" fill="#fff" fill-opacity=".7"/></svg>BIO<b>PACK</b></span>';
+ const LG=`<img class="bplogo" src="${R}img/logo-biopack.png" alt="BIO PACK">`;
  const h=document.getElementById('hdr');
  if(h)h.outerHTML=`<div class="prog" id="prog"></div>
-<header class="top" id="top-h"><a class="logo" href="${R}index.html">${WM}</a>
-<nav><a href="${R}index.html#marques" data-ar="العلامات">Marques</a><a href="${R}index.html#savoir" data-ar="خبرتنا">Savoir-faire</a><a href="${R}index.html#histoire" data-ar="من نحن">Le groupe</a><a href="${R}index.html#distributeurs" data-ar="الموزّعون">Distributeurs</a></nav>
-<div class="hr"><button class="lang" id="lang" aria-label="Langue">عربي</button><a class="pill" href="${R}index.html#contact" data-ar="اتصل بنا">Contact →</a><button class="burger" id="burger" aria-label="Menu">☰</button></div></header>
-<div class="menu" id="menu"><a href="${R}index.html#marques" data-ar="العلامات">Marques</a>${BORDER.map(k=>`<a href="${R}${BRANDS[k].slug}/" style="font-size:clamp(20px,5vw,28px);opacity:.85">→ ${BRANDS[k].name}</a>`).join('')}<a href="${R}index.html#histoire" data-ar="من نحن">Le groupe</a><a href="${R}index.html#distributeurs" data-ar="الموزّعون">Distributeurs</a><a href="${R}index.html#contact" data-ar="اتصل بنا" style="color:var(--gold)">Contact</a></div>`;
+<header class="top" id="top-h"><a class="logo" href="${R}index.html">${LG}</a>
+<nav><a href="${R}index.html#marques" data-ar="العلامات">Marques</a><a href="${R}index.html#categories" data-ar="الفئات">Catégories</a><a href="${R}index.html#histoire" data-ar="من نحن">Le groupe</a><a href="${R}index.html#contact" data-ar="اتصل بنا">Contact</a></nav>
+<div class="hr"><button class="lang" id="lang" aria-label="Langue">عربي</button><a class="pill" href="${R}index.html#distributeurs" data-ar="فضاء الموزّع">Accès distributeur</a><button class="burger" id="burger" aria-label="Menu">☰</button></div></header>
+<div class="menu" id="menu"><a href="${R}index.html#marques" data-ar="العلامات">Marques</a>${BORDER.map(k=>`<a href="${R}${BRANDS[k].slug}/" style="font-size:clamp(20px,5vw,28px);opacity:.85">→ ${BRANDS[k].name}</a>`).join('')}<a href="${R}index.html#histoire" data-ar="من نحن">Le groupe</a><a href="${R}index.html#distributeurs" data-ar="فضاء الموزّع" style="color:var(--gold)">Accès distributeur</a><a href="${R}index.html#contact" data-ar="اتصل بنا">Contact</a></div>`;
  const f=document.getElementById('ftr');
  if(f)f.outerHTML=`<footer class="ftr"><div class="wrap"><div class="cols">
-<div><div class="wm" style="margin-bottom:16px;font-size:24px">BIO<b style="color:var(--gold)">PACK</b></div><p data-ar="صانع جزائري للمنظفات ومنتجات العناية منذ 1995.">Fabricant algérien de détergents et produits d'entretien depuis 1995.</p></div>
+<div><span class="chip-w">${LG}</span><p style="margin-top:16px" data-ar="صانع جزائري للمنظفات ومنتجات العناية منذ 1995.">Fabricant algérien de détergents et produits d'entretien depuis 1995.</p></div>
 <div><h4 data-ar="العلامات">Nos marques</h4>${BORDER.map(k=>`<a href="${R}${BRANDS[k].slug}/">${BRANDS[k].name}</a>`).join('')}</div>
-<div><h4 data-ar="المجموعة">Le groupe</h4><a href="${R}index.html#histoire" data-ar="من نحن">Qui sommes-nous</a><a href="${R}index.html#savoir" data-ar="خبرتنا">Savoir-faire</a><a href="${R}index.html#distributeurs" data-ar="الموزّعون">Distributeurs</a><a href="${R}index.html#contact" data-ar="اتصل بنا">Contact</a></div>
+<div><h4 data-ar="المجموعة">Le groupe</h4><a href="${R}index.html#histoire" data-ar="من نحن">Qui sommes-nous</a><a href="${R}index.html#categories" data-ar="الفئات">Catégories</a><a href="${R}index.html#distributeurs" data-ar="فضاء الموزّع">Accès distributeur</a><a href="${R}index.html#contact" data-ar="اتصل بنا">Contact</a></div>
 <div><h4 data-ar="تواصلوا معنا">Nous joindre</h4><a href="${GROUP.tel}">${GROUP.phone}</a><a href="${GROUP.map}" target="_blank" rel="noopener">${GROUP.addr}</a><a href="${GROUP.fb}" target="_blank" rel="noopener">Facebook — BIOPACK</a></div>
 </div><div class="bot"><span data-ar="© بيوباك للصناعات. جميع الحقوق محفوظة.">© BIOPACK Industries. Tous droits réservés.</span><span data-ar="نموذج تجريبي للموقع">Maquette de site</span></div></div></footer>
 <button class="totop" id="totop" aria-label="Haut">↑</button>`;
